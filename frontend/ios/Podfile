@@ -18,9 +18,8 @@ target 'frontend' do
   config = use_native_modules!
 
   use_react_native!(
-    :path => config[:reactNativePath],
-    # An absolute path to your application root.
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  :path => "../node_modules/react-native",
+  :app_path => "../"
   )
 
   target 'frontendTests' do
@@ -33,7 +32,7 @@ target 'frontend' do
     react_native_post_install(
       installer,
       config[:reactNativePath],
-      :mac_catalyst_enabled => false,
+      # :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
   end
